@@ -40,7 +40,9 @@ abstract class AbstractDatabase extends AbstractHandler {
             if (!is_array($dbParameters)) {
                 throw new \Exception('No valid database connection parameters found');
             }
-            $this->dbConnection = \Zettr\DbConnection::getConnection($dbParameters);
+            $options = $dbParameters['options'];
+            unset($dbParameters['options']);
+            $this->dbConnection = \Zettr\DbConnection::getConnection($dbParameters, $options);
         }
         return $this->dbConnection;
     }
