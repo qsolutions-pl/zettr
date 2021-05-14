@@ -52,7 +52,8 @@ abstract class AbstractDatabase extends \Zettr\Handler\AbstractDatabase
                 'host' => (string)$config->global->resources->default_setup->connection->host,
                 'database' => (string)$config->global->resources->default_setup->connection->dbname,
                 'username' => (string)$config->global->resources->default_setup->connection->username,
-                'password' => (string)$config->global->resources->default_setup->connection->password
+                'password' => (string)$config->global->resources->default_setup->connection->password,
+                'options'  => $config->global->resources->default_setup->connection->driver_options ?? []
             );
         } elseif (is_file($configPhpFile)) {
             $config = include($configPhpFile);
@@ -63,7 +64,8 @@ abstract class AbstractDatabase extends \Zettr\Handler\AbstractDatabase
                 'host' => $config['db']['connection']['default']['host'],
                 'database' => $config['db']['connection']['default']['dbname'],
                 'username' => $config['db']['connection']['default']['username'],
-                'password' => $config['db']['connection']['default']['password']
+                'password' => $config['db']['connection']['default']['password'],
+                'options'  => $config['db']['connection']['default']['driver_options'] ?? []
             );
         }
 
