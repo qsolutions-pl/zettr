@@ -1,7 +1,5 @@
 # Zettr
 
-[![Build Status](https://travis-ci.org/AOEpeople/zettr.svg)](https://travis-ci.org/AOEpeople/zettr)
-
 Author: [Fabrizio Branca](https://twitter.com/fbrnc)
 
 (formerly known as "EnvSettingsTool")

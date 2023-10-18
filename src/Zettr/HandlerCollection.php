@@ -2,7 +2,10 @@
 
 namespace Zettr;
 
-class HandlerCollection implements \Iterator {
+use Iterator;
+use ReturnTypeWillChange;
+
+class HandlerCollection implements Iterator {
 
     /**
      * @var array
@@ -322,30 +325,36 @@ class HandlerCollection implements \Iterator {
      * @param $p3
      * @return string
      */
-    protected function getHandlerHashByValues($handlerClassname, $p1, $p2, $p3) {
+    protected function getHandlerHashByValues($handlerClassname, $p1, $p2, $p3): string
+    {
         return md5($handlerClassname.$p1.$p2.$p3);
     }
 
-    public function rewind() {
+    public function rewind(): void
+    {
         reset($this->handlers);
     }
 
-    public function current() {
+    public function current(): mixed
+    {
         return current($this->handlers);
     }
 
-    public function key() {
+    public function key(): string|int|null
+    {
         return key($this->handlers);
     }
 
-    public function next() {
-        return next($this->handlers);
+    public function next(): void
+    {
+        next($this->handlers);
     }
 
-    public function valid() {
+    public function valid(): bool
+    {
         $key = key($this->handlers);
-        $var = ($key !== NULL && $key !== FALSE);
-        return $var;
+
+        return ($key !== NULL && $key !== FALSE);
     }
 
 

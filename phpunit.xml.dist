@@ -1,12 +1,7 @@
 <phpunit bootstrap="tests/phpunit.bootstrap.php"
          colors="true"
          backupGlobals="false"
-         backupStaticAttributes="false"
-         syntaxCheck="false"
-         stopOnFailure="false"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true">
+         stopOnFailure="false">
     <testsuite name="Zettr">
         <directory suffix="Test.php">./src</directory>
     </testsuite>
